@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 {
     int matrix[M][N];
     int result[M];
-    
+
     for (int i = 0; i < M; ++i) {
         for (int j = 0; j < N; ++j) {
             scanf("%d", &matrix[i][j]);
@@ -33,3 +33,4 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
