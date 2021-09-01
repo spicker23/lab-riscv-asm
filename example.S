@@ -4,15 +4,22 @@ N:
 M:
 .word 4
 matrix:
-.word 1, 1, 1
-.word 2, 2, 2
-.word 3, 3, 3
-.word 4, 4, 4
+#.word 1, 1, 1
+#.word 3, 3, 3
+#.word 2, 2, 2
+#.word 3, 3, 3
+#.word 1, 1, 1
+#.word 4, 4, 4
+
+.word 9, 8, 7
+.word 6, 5, 4
+.word 3, 4, 5
+.word 6, 3, 1
 result:
 .word 0
-.word 0
-.word 0
-.word 0
+#.word 0
+#.word 0
+#.word 0
 
 .text
 
@@ -56,16 +63,23 @@ lw t2, 0(a3) # M
 addi t4, x0, 0 # row pointer
 
 init:
-addi t5, x0, 0 # result to save
+#addi t5, x0, 0 # result to save
 addi t3, x0, 0 # row element number
 
 cycle:
 lw t6, 0(a4) # load value from array
 addi a4, a4, 4 # increment array pointer
-add t5, t5, t6 # count sum
+#add t5, t5, t6 # count sum
+
+ble t6, t5, countmn
+#jump to 79 !!!!!!!!!!!!
+countmn:
+add t5, x0, t6
+
+### jump here!!!!!!!!!
 addi t3, t3, 1
 blt t3, t1, cycle
-sw t5, 0(a5) # save result to resulting array
+#sw t5, 0(a5) # save result to resulting array
 addi a5, a5, 4
 addi t4, t4, 1
 blt t4, t2, init
