@@ -61,6 +61,7 @@ lw t1, 0(a2) # N
 lw t2, 0(a3) # M
 
 addi t4, x0, 0 # row pointer
+addi t5, x0, 10 #added max value possible
 
 init:
 #addi t5, x0, 0 # result to save
@@ -72,11 +73,11 @@ addi a4, a4, 4 # increment array pointer
 #add t5, t5, t6 # count sum
 
 ble t6, t5, countmn
-#jump to 79 !!!!!!!!!!!!
+j next#jump to 79 !!!!!!!!!!!!
 countmn:
 add t5, x0, t6
 
-### jump here!!!!!!!!!
+next:### jump here!!!!!!!!!
 addi t3, t3, 1
 blt t3, t1, cycle
 #sw t5, 0(a5) # save result to resulting array
